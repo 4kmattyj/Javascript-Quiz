@@ -107,20 +107,20 @@
   const submitButton = document.getElementById('submit');
   const myQuestions = [
     {
-      question: "Who invented JavaScript?",
+      question: "What are the building blocks of the internet?",
       answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
+        a: "Java and CSS",
+        b: "HTML, CSS and Java",
+        c: "HTML, CSS and Javascript"
       },
       correctAnswer: "c"
     },
     {
-      question: "Which one of these is a JavaScript package manager?",
+      question: "Functions, Variables and Buttons are all used with this language",
       answers: {
-        a: "Node.js",
-        b: "TypeScript",
-        c: "npm"
+        a: "HTML",
+        b: "CSS",
+        c: "Javascript"
       },
       correctAnswer: "c"
     },
@@ -153,3 +153,30 @@
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
 })();
+
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = minutes + ":" + seconds;
+
+      if (--timer < 0) {
+          timer = duration;
+      }
+  }, 1000);
+}
+
+function myStopFunction() {
+  clearTimeout(duration);
+}
+
+window.onload = function () {
+  var fiveMinutes = 60 * 3,
+      display = document.querySelector('#time');
+  startTimer(fiveMinutes, display);
+};
